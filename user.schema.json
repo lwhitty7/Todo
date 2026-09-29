@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/user.schema.json",
+  "title": "User",
+  "description": "A document in the 'users' collection. The document ID is the user's uid.",
+  "type": "object",
+  "properties": {
+    "uid": {
+      "type": "string",
+      "description": "Firebase Auth UID; matches the document ID.",
+      "minLength": 1
+    },
+    "display_name": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string",
+      "format": "email"
+    },
+    "favorite_sport": {
+      "type": "string"
+    },
+    "birthday": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Firestore timestamp, represented as an RFC 3339 date-time string."
+    },
+    "created_time": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Firestore timestamp, represented as an RFC 3339 date-time string."
+    },
+    "photo_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "Firebase Storage download URL for the profile photo."
+    }
+  },
+  "required": ["uid", "display_name", "email", "created_time"],
+  "additionalProperties": false
+}

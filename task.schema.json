@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/task.schema.json",
+  "title": "Task",
+  "description": "A document in the 'tasks' collection. The document ID is auto-generated.",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "details": {
+      "type": "string"
+    },
+    "completed": {
+      "type": "boolean",
+      "default": false
+    },
+    "created": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Firestore timestamp, represented as an RFC 3339 date-time string."
+    },
+    "user": {
+      "type": "string",
+      "description": "Firestore document reference to the owning user, e.g. /users/{uid}.",
+      "pattern": "^/users/[A-Za-z0-9]+$"
+    }
+  },
+  "required": ["title", "completed", "created", "user"],
+  "additionalProperties": false
+}
